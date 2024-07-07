@@ -21,27 +21,29 @@ Constraints:
 """
 
 class Solution:
-    def lengthOfLongestSubstring(self, s:str) -> int:
-        best_len = 0
-        found_set = set()
-        start = 0
-
-        for end in range(len(s)): # Go through each letter in the string
-            while s[end] in found_set: # Looking to see if current letter is in our hash table
-                print("startt",start)
-                print(s[start])
-                print("s",s)
-                print("found",found_set)
-                found_set.remove(s[start]) # if so that means we have found duplicate and we can delete everything in or hash table up to and including current letter
-                start+=1 # Moves our sliding window
-            best_len = max(best_len, end-start+1) # get largest length
-            found_set.add(s[end]) # add the current letter to the hash table
-        return best_len
+    def lengthOfLongestSubstring(self, s:str) -> int:    
+        char_set = set()
+        left = right = max_length = 0
+        
+        while right < len(s):
+            if s[right] not in char_set:
+                char_set.add(s[right])
+                max_length = max(max_length, right - left + 1)
+                right += 1
+            else:
+                char_set.remove(s[left])
+                left += 1
+        
+        return max_length
 
 test = Solution
 print(test.lengthOfLongestSubstring(test, "pwwkew"))
 
 """
-Time complexity is O(n).  We only check each character once
-Space Complexity is O(1).  Worst case would be where we have to store all the characters
+This solution has a time complexity of O(n), where n is the length of 
+the string, as we iterate through the string at most twice (once with 
+the right pointer and once with the left pointer). The space complexity 
+is O(min(m, n)), where m is the size of the character set, as we store 
+at most min(m, n) characters in the set.
+
 """
