@@ -23,7 +23,6 @@ Constraints:
 def merge(intervals):
     # Sort intervals based on start times
     intervals.sort(key=lambda x: x[0])
-    
     result = []
     
     for interval in intervals:
@@ -39,5 +38,5 @@ def merge(intervals):
 
 # Test cases
 if __name__ == "__main__":
-    print(merge([[1,3],[2,6],[8,10],[15,18]]))  # Expected output: [[1,6],[8,10],[15,18]]
+    print(merge([[1,3],[8,10],[15,18],[2,6]]))  # Expected output: [[1,6],[8,10],[15,18]]
     print(merge([[1,4],[4,5]]))  # Expected output: [[1,5]]
