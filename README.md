@@ -4,4 +4,4 @@ Welcome to my LeetCode solutions repository! This repository serves as a showcas
 
 I enjoy tackling challenging problems and constantly learning new concepts. LeetCode has been an excellent resource for me to refine my coding skills and explore various algorithmic techniques.
 
-hank you for visiting my LeetCode solutions repository. Happy coding!
+Thank you for visiting my LeetCode solutions repository. Happy coding!
